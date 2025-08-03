@@ -56,9 +56,10 @@ export default function LoginPage() {
     try {
       console.log("Attempting to sign in with:", formData.email)
       await signIn(formData.email, formData.password)
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Login error:", error)
-      setErrors({ general: error.message || "Login failed. Please try again." })
+      const errorMessage = error instanceof Error ? error.message : "Login failed. Please try again."
+      setErrors({ general: errorMessage })
     }
   }
 
@@ -175,7 +176,7 @@ export default function LoginPage() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href="/register" className="text-blue-600 hover:text-blue-800 font-medium transition-colors">
                 Sign up
               </Link>

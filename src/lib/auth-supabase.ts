@@ -32,9 +32,9 @@ interface AuthContextType {
   profile: Tables<"users"> | null
   loading: boolean
   signIn: (email: string, password: string) => Promise<void>
-  signUp: (email: string, password: string, userData: any) => Promise<void>
+  signUp: (email: string, password: string, userData: Partial<Tables<"users">>) => Promise<void>
   signOut: () => Promise<void>
-  updateProfile: (updates: any) => Promise<void>
+  updateProfile: (updates: Partial<Tables<"users">>) => Promise<void>
   refreshProfile: () => Promise<void>
 }
 

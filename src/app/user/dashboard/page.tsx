@@ -106,7 +106,7 @@ export default function UserDashboard() {
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, {currentUser?.name || "User"}!</h2>
-          <p className="text-gray-600">Here's an overview of your support tickets and recent activity.</p>
+          <p className="text-gray-600">Here&apos;s an overview of your support tickets and recent activity.</p>
         </div>
 
         {/* Stats Cards */}

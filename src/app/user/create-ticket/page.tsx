@@ -131,7 +131,7 @@ export default function CreateTicketPage() {
         customerEmail: currentUser.email,
         attachments: attachments.map((file) => file.name),
         tags: [],
-        status: "open" as "open",
+        status: "open" as const,
         priority: formData.priority as "low" | "medium" | "high" | "critical",
       }
 
