@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, use } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -79,7 +79,8 @@ const mockConversation = [
   },
 ]
 
-export default function TicketDetailPage({ params }: { params: { id: string } }) {
+export default function TicketDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
   const [newMessage, setNewMessage] = useState("")
   const [userVote, setUserVote] = useState<"up" | "down" | null>(mockTicket.userVote)
   const [upvotes, setUpvotes] = useState(mockTicket.upvotes)
